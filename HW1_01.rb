@@ -1,6 +1,8 @@
 #計算機
 #require 'pry'
+#inding .pry
 def computer (num1,num2,x)
+    case x
         when "A" then puts "計算式：#{num1}+#{num2}=#{num1+num2}"
         when "B" then puts "計算式：#{num1}-#{num2}=#{num1-num2}"
         when "C" then puts "計算式：#{num1}*#{num2}=#{num1*num2}"
@@ -11,10 +13,13 @@ def computer (num1,num2,x)
 end
 
 begin
+    puts "=========================="
+    puts "     簡  易  計  算  機"
+    puts "=========================="
     puts "請輸入數字1"
-    Unum1 = gets.chomp.to_i
+    Unum1 = gets.chomp.to_f
     puts "請輸入數字2"
-    Unum2 = gets.chomp.to_i
+    Unum2 = gets.chomp.to_f
     puts "請輸入運算元（A）加（B）減（C）乘（D）除"
     Ux= gets.chomp.to_s
     computer(Unum1,Unum2,Ux)
