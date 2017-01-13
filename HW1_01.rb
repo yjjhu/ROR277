@@ -1,6 +1,7 @@
 #計算機
 #require 'pry'
 #inding .pry
+
 def computer (num1,num2,x)
     case x
         when "A" then puts "計算式：#{num1}+#{num2}=#{num1+num2}"
