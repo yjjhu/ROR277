@@ -1,6 +1,7 @@
 #剪刀石頭布
 #require 'pry'
 #inding .pry
+
 def game (a,b)
     if a == b
         puts"<><><><><>>   平手   <<><><><><>"
