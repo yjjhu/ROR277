@@ -23,21 +23,17 @@ begin
     puts "=========================================="
     arr=["剪刀","石頭"," 布  "]
     puts "您出拳：（1）剪刀（2）石頭（3）布"
-    Me = gets.chomp.to_i-1
-    NPC = rand(0..2).to_i
+    me = gets.chomp.to_i-1
+    npc = rand(0..2).to_i
 
     puts "++++YOU++++         ++++NPC++++"
     puts "===========         ==========="
-    puts "    "+arr[Me]+"     --VS--    "+arr[NPC]+"    "
+    puts "    "+arr[me]+"     --VS--    "+arr[npc]+"    "
     puts "===========         ==========="
 
-    game(Me,NPC)
+    game(me,npc)
 
     puts "是否繼續玩？ Y/N"
-    input = gets.chomp
+    input = gets.chomp.upcase
 
-    if input=="Y" || input=="y"
-        Me = nil
-        NPC = nil
-    end
-end while input!="N" && input!="n"
+end while input!="N"

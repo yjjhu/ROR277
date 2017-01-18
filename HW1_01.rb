@@ -18,18 +18,13 @@ begin
     puts "     簡  易  計  算  機"
     puts "=========================="
     puts "請輸入數字1"
-    Unum1 = gets.chomp.to_f
+    unum1 = gets.chomp.to_f
     puts "請輸入數字2"
-    Unum2 = gets.chomp.to_f
+    unum2 = gets.chomp.to_f
     puts "請輸入運算元（A）加（B）減（C）乘（D）除"
-    Ux= gets.chomp.to_s
-    computer(Unum1,Unum2,Ux)
+    ux= gets.chomp.to_s
+    computer(unum1,unum2,ux)
     puts "是否繼續計算？ Y/N"
-    input = gets.chomp
+    input = gets.chomp.downcase
 
-    if input=="Y" || input=="y"
-        Unum1 = nil
-        Unum2 = nil
-        Ux = nil
-    end
-end while input!="N" && input!="n"
+end while input!="n"

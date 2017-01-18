@@ -1,4 +1,7 @@
+#require 'pry'
+#binding.pry
 class Player
+  attr_accessor :name
   def initialize(name)
     @name = name
   end 
@@ -7,11 +10,11 @@ end
 # 人類玩家的類別
 class Human < Player
   def get_gesture
-    input = gets.chomp.to_i-1
-    #if input<0 || input>2
-    #    puts "出錯拳，請重新出拳："
-    #    get_gesture
-    #end
+    begin 
+      puts "輪到【#{name}】出拳：（1）剪刀（2）石頭（3）布"
+      input = gets.chomp.to_i-1
+    end until [0,1,2].include?(input)
+    input
   end
 end
 
@@ -33,42 +36,40 @@ class RPS
     puts "=========================================="
     puts "     猜  拳  遊  戲  機"
     puts "=========================================="
-    self.get_player_gestures
+    get_player_gestures
   end
 
   def decide (a,b)
     #邏輯判斷式
     if a==b
-        puts show_message(a,b)
-        puts"<><><><><>>   平手   <<><><><><>"
+      puts show_message(a,b)
+      puts"<><><><><>>   平手   <<><><><><>"
     elsif a==0 && b==1
-        puts show_message(a,b)        
-        puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
+      puts show_message(a,b)        
+      puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
     elsif a==1 && b==2
-        puts show_message(a,b)
-        puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
+      puts show_message(a,b)
+      puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
     elsif a==2 && b==0
-        puts show_message(a,b)
-        puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
+      puts show_message(a,b)
+      puts"<><>LOSE<>>   (輸)   <><>WIN><>>"
     else
-        puts show_message(a,b)
-        puts"<><>WIN><>>   (贏)   <><>LOSE<>>"
+      puts show_message(a,b)
+      puts"<><>WIN><>>   (贏)   <><>LOSE<>>"
     end
-    self.continue
+    continue
   end
 
   def get_player_gestures
     #取得玩家和電腦兩個物件的
     puts "請輸入您的名字："
-    user_name=gets.chomp.to_s
-    user=Human.new(user_name)
-    puts "#{user_name}出拳：（1）剪刀（2）石頭（3）布"
-    user_a=user.get_gesture
+    @user_name=gets.chomp.to_s
+    @user=Human.new(@user_name)
+    @user_a=@user.get_gesture
     
-    npc=Computer.new("NPC")
-    npc_b=npc.get_gesture
-
-    self.decide(user_a,npc_b)  
+    @npc=Computer.new("NPC")
+    @npc_b=@npc.get_gesture
+    self.decide(@user_a,@npc_b)  
   end
 
   def continue
@@ -81,14 +82,14 @@ class RPS
         puts"謝謝！祝您有美好的一天！"
       else
         puts"輸入錯誤！再問一便！"
-        self.continue
+        continue
     end
   end
 
   def show_message(show_a,show_b)
     #印出結果
     arr=["剪刀","石頭"," 布  "]
-    puts "++++YOU++++         ++++NPC++++"
+    puts "++++#{@user.name}++++         ++++#{@npc.name}++++"
     puts "===========         ==========="
     puts "    "+arr[show_a]+"     --VS--    "+arr[show_b]+"    "
     puts "===========         ==========="
