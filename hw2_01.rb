@@ -1,3 +1,4 @@
+#（第二週作業）物件導向：剪刀石頭布
 #require 'pry'
 #binding.pry
 class Player
