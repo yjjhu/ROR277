@@ -73,6 +73,7 @@
 
 
 9. 請問 binding.pry 是什麼？ 要如何使用它？  
+  
   Ans：  
   binding.pry是除錯工具pry停止的點。  
   在程式碼上方「require 'pry'」之後，即可在程式碼任一行下「binding.pry」來測式程式。  
@@ -110,5 +111,4 @@
     age: 18,
   }  
   ```  
-    
     
