@@ -56,6 +56,7 @@
   
 
 7. 請列出兩種產出亂數的方法   
+  
   Ans：  
   （1）rand(1..100)  
   （2）(1..100).to_a.sample  
@@ -66,6 +67,7 @@
   ((1 > 3)&&(true == true))||(!!!false)
   ```
   會執行出什麼結果？ 請試試不用 irb 算出結果  
+  
   Ans：  
   = ((false)且(true))或(true)  
   = (false)或(true)  
