@@ -34,7 +34,7 @@
   Ans：  
   程式碼如下  
   ```ruby
-  arr.map{|x| puts x.class==String ? "#{x}," : ""}
+  arr.reject{|x| x.class != String}
   ```  
 
   
